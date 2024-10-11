@@ -62,6 +62,7 @@ def categoryDelete(request, pk):
 @api_view(['GET'])
 def productList(request):
     product = Product.objects.all()
+
     for detail in product.data:
         encrypted_price = detail.price
         detail.price = decrypt_price(encrypted_price)
